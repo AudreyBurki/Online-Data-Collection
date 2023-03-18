@@ -6,7 +6,8 @@ Knowledge about the extent and sources of variability is necessary to determine 
 
 So, are on-line data more variable? The graph below suggests that they are.
 
-<img src="./pwi_online_lab.png">
+<img src="./pwi_online_lab.png" width=50% height=50%>
+
 
 
 
