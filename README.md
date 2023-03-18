@@ -18,7 +18,7 @@ So, do we need larger sample sizes than in a lab experiment?
 
 - For between-participant designs, for sure
 - For within participant designs, not necessarily
-- Large sample sizes (items and participants) are needed both in the lab and on-line for most designs
-- 
+- Large sample sizes (items and participants) are needed both in the lab and on-line for most designs in psycholinguistic research
+
 
 
