@@ -4,3 +4,9 @@ With the pandemic, many experimental psychologists/linguists have started to col
 
 Knowledge about the extent and sources of variability is necessary to determine the feasibility of such experiments and compute the sample sizes required to achieve suffcient statistical power in future experiments. 
 
+So, are on-line data more variable? The graph below suggests that they are.
+
+<img src="./pwi_online_lab.png">
+
+
+
