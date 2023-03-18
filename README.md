@@ -9,5 +9,16 @@ So, are on-line data more variable? The graph below suggests that they are.
 <img src="./pwi_online_lab.png" width=50% height=50%>
 
 
+Analyses suggest:
+- that on-line data are more variable
+- that the varibility mostly stem from differences between participants
+
+
+So, do we need larger sample sizes than in a lab experiment?
+
+- For between-participant designs, for sure
+- For within participant designs, not necessarily
+- Large sample sizes (items and participants) are needed both in the lab and on-line for most designs
+- 
 
 
