@@ -18,7 +18,7 @@ So, do we need larger sample sizes than in a lab experiment?
 
 - For between-participant designs, for sure
 - For within participant designs, not necessarily
-- Large sample sizes (items and participants) are needed both in the lab and on-line for most designs in psycholinguistic research
+- Large sample sizes (items and participants) are needed both in the lab and on-line for most designs in psycholinguistic research. The graphs below show power as a function of numbder of participants for typcail effect sizes, 90 items per condition. Power is likely underestimated (because the by participant random slope is liekly underestimated)
 
 <p float="left">
 <img src="./power_fct_pp_newdata_online-sem.jpg"width=30% height=30%/>
