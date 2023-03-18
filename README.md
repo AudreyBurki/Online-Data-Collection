@@ -22,3 +22,8 @@ So, do we need larger sample sizes than in a lab experiment?
 
 
 
+<img src="./power_fct_pp_newdata_online-sem.png" width=50% height=50%>
+<img src="./power_fct_pp_newdata_online-phon.png" width=50% height=50%>
+
+
+
