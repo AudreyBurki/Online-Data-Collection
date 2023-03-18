@@ -21,8 +21,8 @@ So, do we need larger sample sizes than in a lab experiment?
 - Large sample sizes (items and participants) are needed both in the lab and on-line for most designs in psycholinguistic research
 
 <p float="left">
-<img src="./power_fct_pp_newdata_online-sem.jpg"width=50% height=50%/>
-<img src="./power_fct_pp_newdata_online-phon.jpg"width=50% height=50%/>
+<img src="./power_fct_pp_newdata_online-sem.jpg"width=30% height=30%/>
+<img src="./power_fct_pp_newdata_online-phon.jpg"width=30% height=30%/>
 
 
 </p>
