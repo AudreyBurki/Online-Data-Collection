@@ -6,7 +6,7 @@ Knowledge about the extent and sources of variability is necessary to determine 
 
 So, are on-line data more variable? The graph below suggests that they are.
 
-<img src="./pwi_online_lab.png" width=50% height=50%>
+<img src="./pwi_online_lab.jpg" width=50% height=50%>
 
 
 Analyses suggest:
@@ -21,8 +21,8 @@ So, do we need larger sample sizes than in a lab experiment?
 - Large sample sizes (items and participants) are needed both in the lab and on-line for most designs in psycholinguistic research. The graphs below show power as a function of numbder of participants for typcail effect sizes, 90 items per condition. Power is likely underestimated (because the by participant random slope is liekly underestimated)
 
 <p float="left">
-<img src="./power_fct_pp_newdata_online-sem.jpg"width=30% height=30%/>
-<img src="./power_fct_pp_newdata_online-phon.jpg"width=30% height=30%/>
+<img src="./power_fct_pp_newdata_online-sem.jpg "width=30% height=30%/>
+<img src="./power_fct_pp_newdata_online-phon.jpg "width=30% height=30%/>
 
 
 </p>
