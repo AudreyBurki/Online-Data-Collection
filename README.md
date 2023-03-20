@@ -12,9 +12,8 @@ Knowledge about the extent and sources of variability is necessary to determine 
 
 We collected data in the lab and on-line for the same experiment. We measured the time needed to start saying the name of an object when this object is shown on the screen. The graph below suggests that on-line data are more variable: 
 
+<img src="./pwi_online_lab.png" width=50% height=50%>
 
-
-<img src="https://AudreyBurki.github.io/Online-Data-Collection/img/pwi_online_lab.png">
 Analyses suggest:
 - that on-line data are more variable
 - that the varibility mostly stem from differences between participants
