@@ -14,7 +14,7 @@ We collected data in the lab and on-line for the same experiment. We measured th
 
 
 
-<img src="https://AudreyBurki.github.io/Online-Data-Collection/img/pwi_online_lab.png
+<img src="https://AudreyBurki.github.io/Online-Data-Collection/img/pwi_online_lab.png>
 Analyses suggest:
 - that on-line data are more variable
 - that the varibility mostly stem from differences between participants
