@@ -1,10 +1,16 @@
 # Online-Data-Collection
 
-With the pandemic, many experimental psychologists/linguists have started to collect data over the internet (thereafter “on-line data”). It is often assumed that data collected over the internet are more variable than lab data. The aim of this project is to determine whether this is true and if so, assess the extent and sources of this variability: are the data more variable because participants differ more from one another? Or are the participants more variable themselves (because they are more distracted or because many things are going on at once on their computer).
+With the pandemic, many experimental psychologists/linguists have started to collect data over the internet (“on-line data”). It is often assumed that data collected over the internet are more variable than lab data.
+
+Is this true? If so, what is the source of this variability?
+
+  - Are the data more variable because participants differ more from one another? 
+  - Are the data more variable because participants are more distracted or because many things are going on at once on their computer?
 
 Knowledge about the extent and sources of variability is necessary to determine the feasibility of such experiments and compute the sample sizes required to achieve suffcient statistical power in future experiments. 
 
-So, are on-line data more variable? The graph below suggests that they are.
+
+We collected data in the lab and on-line for the same experiment. We measured the time needed to start saying the name of an object when this object is shown on the screen. The graph below suggests that on-line data are more variable: 
 
 <img src="./pwi_online_lab.png" width=50% height=50%>
 
