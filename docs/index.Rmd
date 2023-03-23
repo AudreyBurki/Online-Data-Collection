@@ -1,50 +1,153 @@
 ---
 title: "Are data collected on the internet more variable?"
 author: "Audrey Bürki"
-date: "20 3 2023"
+date: ""
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 library(cowplot)
-knitr::opts_chunk$set(echo = F, warning=F, messages=F)
 
+library(hrbrthemes)
+
+library(viridis)
+library(tidyverse)
+library(MASS)
+library(car)
+library(psychometric) 
+library(lme4)
+library(Rmisc)
+library(lmerTest)
+library(formatR)
+library(ggplot2)
+library(MASS)
+library(dplyr)
+library(knitr)
+library(sjPlot)
+library(designr)
+library(gdata)
+library(ggdist)
+library(doBy)
+library(magick)
+library(cowplot)
+library(gridExtra)
+library(rmdfiltr)
+library(plotly)
+knitr::opts_chunk$set(echo = F, warning=F, messages=F)
+library(bayesplot)
 
 ```
 With the pandemic, many experimental psychologists/linguists have started to collect data over the internet (“on-line data”). It is often assumed that data collected over the internet are more variable than lab data.
 
 Is this true? If so, what is the source of this variability?
 
-  Is the data more variable because participants differ more from one another?
-  Is the data more variable because participants are more distracted or because many things are going on at once on their computer?
+  * Are data more variable because participants differ more from one another?
+  * Are data more variable because participants are more distracted or because many things are going on at once on their computer?
 
-Knowledge about the extent and sources of variability is necessary to determine the feasibility of such experiments and compute the sample sizes required to achieve suffcient statistical power in future experiments.
+Knowledge about the extent and sources of variability is necessary to determine the feasibility of such experiments and compute the sample sizes required to achieve sufficient statistical power in future experiments.
 
 We collected data in the lab and on-line for the same experiment. We measured the time needed to start saying the name of an object when this object is shown on the screen. The graph below suggests that on-line data are more variable:
-```{r}
+
+```{r load and prepare new daasets}
+dat_new <- read.csv2("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/original_data/Data_replication_BuerkiMadec/replication_study_data_time_alignment4.csv", sep=";")
+dat_new$Participant<-as.factor(dat_new$sub)
+dat_new$Item<-as.factor(dat_new$noun)
+dat_new$comment<-as.factor(dat_new$comment)
+dat_new$RT<-as.numeric(dat_new$onset)
+dat_new$Condition<-as.factor(dat_new$trigger_condition)
+dat_new$Condition <-mapvalues(dat_new$Condition, from = c("trigcon101", "trigcon102", "trigcon103","trigcon104","trigcon105"), to = c("baseline","phono.rel", "phono.unr", "sem.rel", "sem.unr"))
+dat_new<-dat_new[dat_new$Condition=="baseline"|dat_new$Condition=="phono.rel"|dat_new$Condition=="phono.unr"|dat_new$Condition=="sem.rel"|dat_new$Condition=="sem.unr",]
 
 
-p <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/pwi_online_lab.png", scale = 0.9)
-p
+dat_new$PP.ID <- group_indices(dat_new, sub)
+dat_new <- dat_new[dat_new$accuracy==1,]
+dat_new<- dat_new[dat_new$comment=="ok",]
+dat_new<- dat_new[dat_new$onset>0,]
+
+dat_new2 <- dat_new[dat_new$Condition!="baseline",]
+
+OnlineData <- drop.levels(dat_new2)
+OnlineData2<- OnlineData[,c("RT", "Condition")] 
+OnlineData2$Setting <- "Online"
+Burki_pwi_lab <-read.csv2("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208//data/Dataset_Buerki_ALLitems.csv", sep=",")
+Burki_pwi_lab$PP.ID <- group_indices(Burki_pwi_lab, Participant_ID)
+Burki_pwi_lab$Condition <- as.factor(Burki_pwi_lab$Condition)
+Burki_pwi_lab2 <- Burki_pwi_lab[Burki_pwi_lab$Condition!="baseline",]
+
+LabData<- drop.levels(Burki_pwi_lab2)
+
+LabData2<- LabData[,c("RT", "Condition")] 
+LabData2$Setting <- "Lab"
+d <-rbind(LabData2, OnlineData2)
+d$Setting <-as.factor(d$Setting)
 ```
+
+```{r}
+color_scheme_set("gray")
+pwi_online_lab <- ggplot() +
+  geom_density(aes(RT, fill="OnlineData"), alpha=0.4, size=0.6,data = OnlineData) +
+  geom_density(aes(RT,fill="LabData"), alpha = .4, size=0.6,data = LabData) +
+   scale_color_viridis(breaks=c("OnlineData", "LabData"),labels=c("On-line", "Lab"),name="Setting")+
+   xlab("Speech onset latencies (ms)")+
+  coord_cartesian(ylim = c(0, 0.0025), xlim=c(0,3000))+
+  theme(legend.key.size = unit(0.8, 'cm'), #change legend key size
+        legend.key.height = unit(0.8, 'cm'), #change legend key height
+        legend.key.width = unit(0.8, 'cm'), #change legend key width
+        legend.title = element_text(size=12), #change legend title font size
+        legend.text = element_text(size=12), #change legend text font size
+        legend.position=c(0.8,0.8),
+        legend.background = element_rect(), 
+        text = element_text(size=12))+
+  ggtitle(" ")
+
+
+ggplotly(pwi_online_lab)
+```
+
+```{r, eval=F}
+dens <- ggplot(d, aes(x=RT, fill=Setting)) +
+  geom_density(alpha=0.4, linewidth=0.4) +
+  xlab("Response times (ms)")+ scale_color_grey() +
+  #theme(legend.position="top")+
+  scale_fill_grey(breaks=c("Lab", "Online"),
+  labels=c("Lab", "Online"),name="Setting")+
+  ggtitle("")+
+  coord_cartesian(ylim = c(0, 0.0025), xlim=c(0,3000))+
+  theme(legend.key.size = unit(0.5, 'cm'), #change legend key size
+        legend.key.height = unit(0.5, 'cm'), #change legend key height
+        legend.key.width = unit(0.5, 'cm'), #change legend key width
+        legend.title = element_text(size=8), #change legend title font size
+        legend.text = element_text(size=8), #change legend text font size
+        legend.position=c(0.8,0.8),
+        legend.background = element_rect(),
+        text = element_text(size=8))
+ggplotly(pwi_online_lab)
+```
+
+
+
+
+
+
+
 Analyses suggest:
 
-  *that on-line data are more variable
-  *that the varibility mostly stem from differences between participants
+  * That on-line data are more variable
+  * That the variability mostly stems from differences between participants
 
-So, do we need larger sample sizes than in a lab experiment?
+So, do we need larger sample sizes than for a lab experiment?
 
-  *For between-participant designs, for sure
+  * For between-participant designs, for sure
   
-  *For within participant designs, not necessarily
+  * For within participant designs, not necessarily
   
-  *Large sample sizes (items and participants) are needed both in the lab and on-line for most designs in psycholinguistic research. The graphs below show power as a function of number of participants for typical two effects, 90 items per condition. Power is likely underestimated (because the by-participant random slope is likely underestimated)
+  * Large sample sizes (items and participants) are needed both in the lab and on-line for most designs in psycholinguistic research. The graphs below show power as a function of number of participants for two effects of typical size, 90 items per condition. Power is likely underestimated (because the by-participant random slope is likely underestimated)
 
 
 
 
 
-```{r appendix-plot-power-fct-pp-newdata, fig.subcap ="", fig.cap = "(ref:appendix-plot-power-fct-pp-newdata-caption)",echo=F, eval=T, cache=F}
+```{r, eval=F}
 
 w1 <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/power_fct_pp_newdata_online-sem.jpg", scale = 1)
 w2 <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/power_fct_pp_newdata_online-phon.jpg", scale = 1)
