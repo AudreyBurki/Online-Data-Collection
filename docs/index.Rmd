@@ -145,13 +145,12 @@ So, do we need larger sample sizes than for a lab experiment?
 
 
 
-
-
-```{r, eval=F}
+```{r, eval=T}
 
 w1 <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/power_fct_pp_newdata_online-sem.jpg", scale = 1)
 w2 <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/power_fct_pp_newdata_online-phon.jpg", scale = 1)
-plot_grid(w1,w2, align="hv", placement ="H")
+w1
+w2
 ```
 
 
