@@ -101,7 +101,7 @@ pwi_online_lab <- ggplot() +
   ggtitle(" ")
 
 
-ggplotly(pwi_online_lab)
+ggplotly(pwi_online_lab, height = 400)
 ```
 
 ```{r, eval=F}
@@ -130,7 +130,7 @@ ggplotly(pwi_online_lab)
 
 
 
-Analyses suggest:
+Analyses show:
 
   * That on-line data are more variable
   * That the variability mostly stems from differences between participants
@@ -141,14 +141,13 @@ So, do we need larger sample sizes than for a lab experiment?
   
   * For within participant designs, not necessarily
   
-  * Large sample sizes (items and participants) are needed both in the lab and on-line for most designs in psycholinguistic research. The graphs below show power as a function of number of participants for two effects of typical size, 90 items per condition. Power is likely underestimated (because the by-participant random slope is likely underestimated)
+  * The graphs below show power as a function of number of participants for two effects of typical size, 90 items per condition. 
 
 
+```{r, eval=T, out.width = "50%"}
 
-```{r, eval=T}
-
-w1 <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/power_fct_pp_newdata_online-sem.jpg", scale = 1)
-w2 <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/power_fct_pp_newdata_online-phon.jpg", scale = 1)
+w1 <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/power_fct_pp_newdata_online-sem.jpg")
+w2 <- ggdraw() + draw_image("H:/Research_Ongoing/Variability_online_DATA/Data_scripts_online_Variability20221208/figures/power_fct_pp_newdata_online-phon.jpg")
 w1
 w2
 ```
